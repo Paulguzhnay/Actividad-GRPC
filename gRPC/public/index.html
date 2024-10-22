@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos</title>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h2>Buscar Producto</h2>
+  <input type="text" id="product-id" placeholder="ID del producto">
+  <button onclick="getProductById()">Buscar</button>
+  <p id="product-info"></p>
+  
+  <h1>Productos</h1>
+  <button onclick="getProducts()">Cargar Productos</button>
+  <br>
+  <br>
+  
+  <!-- Contenedor para la tabla de productos -->
+  <div id="product-table"></div>
+
+</body>
+</html>
