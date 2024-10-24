@@ -1,15 +1,15 @@
 table {
     width: 100%;
-    border-collapse: collapse; /* Colapsar bordes para que se vean como líneas continuas */
+    border-collapse: collapse; 
 }
 th, td {
-    border: 1px solid #ddd; /* Color y estilo del borde */
-    padding: 8px; /* Espaciado interno */
-    text-align: left; /* Alinear el texto a la izquierda */
+    border: 1px solid #ddd; 
+    padding: 8px;  
+    text-align: left;  
 }
 th {
-    background-color: #f2f2f2; /* Color de fondo para los encabezados */
+    background-color: #f2f2f2;  
 }
 tr:hover {
-    background-color: #f5f5f5; /* Color de fondo para filas al pasar el mouse */
+    background-color: #f5f5f5;  
 }

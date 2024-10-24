@@ -5,19 +5,19 @@ const path = require('path');
 const app = express();
 const port = 3000;
 
-// Sirviendo archivos estáticos desde la carpeta 'public'
+
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Configurar la conexión a la base de datos PostgreSQL
+
 const pool = new Pool({
-    user: 'desarrolladores', // Ajusta el usuario si es diferente
-    host: 'localhost',
+    user: 'desarrolladores', 
+    host: 'db',
     database: 'northwind',
-    password: '12345', // Reemplaza con la contraseña que configuraste
+    password: '12345', 
     port: 5432
 });
 
-// Ruta para obtener todos los productos
+
 app.get('/api/products', async (req, res) => {
     try {
         const result = await pool.query('SELECT * FROM products');
@@ -28,7 +28,7 @@ app.get('/api/products', async (req, res) => {
     }
 });
 
-// Ruta para obtener un producto por ID
+
 app.get('/api/products/:id', async (req, res) => {
     const id = req.params.id;
     try {

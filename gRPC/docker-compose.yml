@@ -1,0 +1,39 @@
+version: '3'
+services:
+  grpc-server:
+    build:
+      context: .
+      dockerfile: Dockerfile.grpc
+    ports:
+      - "50051:50051"
+    depends_on:
+      - db
+    environment:
+      - PGHOST=db
+      - PGUSER=desarrolladores
+      - PGPASSWORD=12345
+      - PGDATABASE=northwind
+      - PGPORT=5432
+  
+  express-server:
+    build:
+      context: .
+      dockerfile: Dockerfile.express
+    ports:
+      - "3000:3000"
+    depends_on:
+      - grpc-server
+  
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: desarrolladores
+      POSTGRES_PASSWORD: 12345
+      POSTGRES_DB: northwind
+    ports:
+      - "5432:5432"
+    volumes:
+      - db-data:/var/lib/postgresql/data
+      - ./northwind.sql:/docker-entrypoint-initdb.d/northwind.sql  
+volumes:
+  db-data:
